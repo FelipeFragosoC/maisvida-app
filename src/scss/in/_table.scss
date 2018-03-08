@@ -1,0 +1,30 @@
+.thead-default th {
+	background-color: rgba(#fff, .1);
+}
+
+.table thead th {
+	border: none;
+	font-family: Quicksand, sans-serif;
+	font-size: 16px;
+}
+
+.table td {
+	border: none;
+	vertical-align: middle;
+}
+
+.table-bordered {
+	border: 1px solid rgba(#000, 0.4);
+}
+
+.table-outline {
+	border: 1px solid rgba(#fff, 0.1);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(#000, 0.2);
+}
+
+.table-hover tbody tr:hover {
+	background-color: rgba(#000, 0.1);
+}

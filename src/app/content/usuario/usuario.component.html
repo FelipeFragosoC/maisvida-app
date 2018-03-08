@@ -1,0 +1,102 @@
+<div class="animated fadeIn">
+	<div class="row" *ngIf="usuarioService.isVisitor">
+		<div class="col-12 animated fadeInDownBig">
+			<mat-card class="mb-3" >
+				<h5 class="mb-3">Olá Visitante</h5>
+
+				<h6 class="mb-4">Deseja criar uma conta para desenvolver e/ou manter os trabalhos?</h6>
+
+				<button mat-raised-button class="btn-primary" (click)="showNewUser()">
+					<i class="material-icons">person_add</i>
+					Sim, criar uma conta
+				</button>
+
+				<button mat-raised-button class="btn-danger">
+					Não, sair
+					<i class="material-icons">exit_to_app</i>
+				</button>
+			</mat-card>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="usuarioService.isVisitor && newUserCtrl">
+		<div class="col-6">
+			<mat-card>
+				<h4 class="mb-4">Nova Conta</h4>
+
+				<mat-form-field class="w-100">
+					<input matInput placeholder="Nome Completo" [(ngModel)]="newUser.name" name="newName">
+				</mat-form-field>
+
+				<mat-form-field class="w-100">
+					<input matInput placeholder="E-mail" [(ngModel)]="newUser.email" name="newEmail">
+				</mat-form-field>
+
+				<mat-form-field class="w-100 mb-2">
+					<input matInput placeholder="Usuário" [(ngModel)]="newUser.username" name="newUsername">
+					<mat-hint align="start">Mínimo 6 caracteres.</mat-hint>
+					<mat-hint align="end">{{newUser.username.length}} / 6</mat-hint>
+				</mat-form-field>
+
+				<mat-form-field class="w-100 mb-2">
+					<input matInput type="password" placeholder="Senha" [(ngModel)]="newUser.password" name="txt_newPassword">
+					<mat-hint align="start">Mínimo 8 caracteres.</mat-hint>
+					<mat-hint align="end">{{newUser.password.length}} / 8</mat-hint>
+				</mat-form-field>
+
+				<mat-form-field class="w-100">
+					<input matInput type="password" placeholder="Confirmar senha" [(ngModel)]="confPassword" name="newConfPassword">
+				</mat-form-field>
+
+				<div class="my-3">
+					<mat-checkbox color="primary" [(ngModel)]="termsCtrl"></mat-checkbox>
+					<span>Li e concordo com o <a class="text-primary cursor-pointer" (click)="showTerms()">Termo de Uso</a> e a <a class="text-primary cursor-pointer" (click)="showPrivacy()">Política de Privacidade</a>.</span>
+				</div>
+
+				<button class="btn-success" mat-raised-button [disabled]="!termsCtrl || !validateLogin(newUser)" (click)="postVisitorToUser()">
+					<i class="material-icons">person_add</i>
+					Criar conta
+				</button>
+
+			</mat-card>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="!usuarioService.isVisitor">
+		<div class="col-md-6 col-12">
+			<mat-card>
+				<mat-form-field class="w-100">
+					<input matInput placeholder="Nome Completo" [(ngModel)]="usuarioService.user.name" name="newName">
+				</mat-form-field>
+
+				<mat-form-field class="w-100">
+					<input matInput placeholder="E-mail" [(ngModel)]="usuarioService.user.email" name="newEmail">
+				</mat-form-field>
+
+				<button class="btn-success" mat-raised-button [disabled]="!validatePersonalInfo(usuarioService.user)" (click)="updateUser()">
+					<i class="material-icons">account_box</i>
+					Atualizar dados
+				</button>
+			</mat-card>
+		</div>
+
+		<div class="col-md-6 col-12">
+			<mat-card>
+				<mat-form-field class="w-100 mb-2">
+					<input matInput type="password" placeholder="Senha" [(ngModel)]="newPassword" name="txt_newPassword">
+					<mat-hint align="start">Mínimo 8 caracteres.</mat-hint>
+					<mat-hint align="end">{{newPassword.length || 0}} / 8</mat-hint>
+				</mat-form-field>
+
+				<mat-form-field class="w-100">
+					<input matInput type="password" placeholder="Confirmar senha" [(ngModel)]="confPassword" name="newConfPassword">
+				</mat-form-field>
+
+				<button class="btn-success" mat-raised-button [disabled]="!validatePassword()" (click)="postUserPassword()">
+					<i class="material-icons">vpn_key</i>
+					Atualizar senha
+				</button>
+			</mat-card>
+		</div>
+	</div>
+</div>

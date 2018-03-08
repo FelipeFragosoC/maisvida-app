@@ -1,0 +1,87 @@
+// Bootstrap overrides
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+$gray-dark:                 #263238;
+$gray:                      #607d8b;
+$gray-light:                #b0bec5;
+$gray-lighter:              #cfd8dc;
+$gray-lightest:             #eceff1;
+
+$white:		#ffffff !default;
+$black:		#000000 !default;
+$red:		#FF5361 !default;
+$orange:	#FA7F6B !default;
+$yellow:	#FFC107 !default;
+$green:		#26A69A !default;
+$green-alt:	#62D5A0 !default;
+$blue:		#00B0FF !default;
+$teal:		#82B1FF !default;
+$pink:		#C12DE3 !default;
+$pink-alt:	#EA4C89 !default;
+$purple:	#9600E2 !default;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-transitions:        true;
+
+$enable-rounded:            false;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   #efefef;
+$body-color: 				rgba(#000, 0.8);
+$font-family-base: 			Hind;
+$headings-font-family:		Quicksand;
+
+$text-muted: 				rgba(#000, 0.4) !default;
+$text-alt:					rgba(#9BC8E8, 0.8) !default;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:            1rem;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             #6599FA !default;
+$brand-success:             #2ED374 !default;
+$brand-info:                #33CCFE !default;
+$brand-warning:             #F5C464 !default;
+$brand-danger:              #FF1D1D !default;
+$brand-purple:				#8135FF !default;
+$brand-inverse:             $gray-dark !default;
+
+// Breadcrumbs
+
+$breadcrumb-bg:             #fff;
+
+// Cards
+
+$card-border-color:         $gray-lighter;
+$card-cap-bg:               $gray-lightest;
+
+// Dropdowns
+
+$dropdown-padding-y:        0;
+$dropdown-border-color:     $gray-lighter;
+$dropdown-divider-bg:       $gray-lightest;
+
+// Buttons
+
+$btn-secondary-border:      $gray-light;
+
+// Progress bars
+
+$progress-bg:               $gray-lightest;
+
+// Tables
+
+$table-bg-accent:           $gray-lightest;
+$table-bg-hover:            $gray-lightest;

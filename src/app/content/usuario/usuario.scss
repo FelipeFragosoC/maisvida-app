@@ -1,0 +1,40 @@
+.position-card {
+	min-height: 200px;
+	padding: 0 !important;
+}
+
+.position-content {
+	padding: 20px;
+}
+
+.position-safe {
+	background-image: url("/assets/img/safe.jpg");
+	background-size: cover;
+	background-position: center center;
+	min-height: 200px;
+}
+
+.position-mid {
+	background-image: url("/assets/img/mid.jpg");
+	background-size: cover;
+	background-position: center center;
+	min-height: 200px;
+}
+
+.position-off {
+	background-image: url("/assets/img/off.jpg");
+	background-size: cover;
+	background-position: center center;
+	min-height: 200px;
+}
+
+.cl-lane {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 5px;
+}
+
+progress {
+	width: 95%;
+}

@@ -1,0 +1,91 @@
+.btn {
+	padding: 10px 30px;
+	font-family: Quicksand, sans-serif;
+	font-size: 20px;
+}
+
+.btn-primary.disabled, .btn-primary:disabled,
+.btn-info.disabled, .btn-info:disabled,
+.btn-success.disabled, .btn-success:disabled,
+.btn-danger.disabled, .btn-danger:disabled,
+.btn-warning.disabled, .btn-warning:disabled {
+	background-color: #ccc !important;
+	color: #999 !important;
+}
+
+@-webkit-keyframes primaryPulse {
+	$main-color: $brand-primary;
+
+	from { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+	50% { background-color: darken($main-color, 7%); -webkit-box-shadow: 0 0 18px $main-color; }
+	to { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes warningPulse {
+	$main-color: $brand-warning;
+
+	from { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+	50% { background-color: darken($main-color, 7%); -webkit-box-shadow: 0 0 18px $main-color; }
+	to { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes successPulse {
+	$main-color: $brand-success;
+
+	from { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+	50% { background-color: darken($main-color, 7%); -webkit-box-shadow: 0 0 18px $main-color; }
+	to { background-color: $main-color; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+.btn-pulse {
+	-webkit-animation-name: primaryPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+.btn-pulse-success {
+	-webkit-animation-name: successPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+.btn-pulse-warning {
+	-webkit-animation-name: warningPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+.btn-pulse-carry {
+	-webkit-animation-name: carryPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	color: #fff !important;
+}
+
+.btn-pulse-mid {
+	-webkit-animation-name: midPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	color: #fff !important;
+}
+
+.btn-pulse-off {
+	-webkit-animation-name: offPulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	color: #fff !important;
+}
+
+.btn-pulse-sup4 {
+	-webkit-animation-name: sup4Pulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	color: #fff !important;
+}
+
+.btn-pulse-sup5 {
+	-webkit-animation-name: sup5Pulse;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	color: #fff !important;
+}

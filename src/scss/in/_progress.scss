@@ -1,0 +1,236 @@
+$glow-width: 10px;
+
+@mixin progress-gradient-model($color1, $color2) {
+	background-color: $color1;
+	background: -webkit-linear-gradient(to right, $color1, $color1, $color2);
+	background: -o-linear-gradient(to right, $color1, $color1, $color2);
+	background: -moz-linear-gradient(to right, $color1, $color1, $color2);
+	background: linear-gradient(to right, $color1, $color1, $color2);
+
+	-moz-box-shadow: 0 0 $glow-width $color1;
+	-webkit-box-shadow: 0 0 $glow-width $color1;
+	box-shadow: 0 0 $glow-width $color1;
+}
+
+@mixin progress-gradient-model-rtl($color1, $color2) {
+	background-color: $color1;
+	background: -webkit-linear-gradient(to left, $color1, $color1, $color2);
+	background: -o-linear-gradient(to left, $color1, $color1, $color2);
+	background: -moz-linear-gradient(to left, $color1, $color1, $color2);
+	background: linear-gradient(to left, $color1, $color1, $color2);
+
+	-moz-box-shadow: 0 0 $glow-width $color1;
+	-webkit-box-shadow: 0 0 $glow-width $color1;
+	box-shadow: 0 0 $glow-width $color1;
+}
+
+@mixin progress-model($color) {
+	background-color: $color;
+	-moz-box-shadow: 0 0 $glow-width $color;
+	-webkit-box-shadow: 0 0 $glow-width $color;
+	box-shadow: 0 0 $glow-width $color;
+}
+
+progress {
+	width: 100%;
+	height: 2px;
+	overflow: visible !important;
+	transition: 1s;
+	background: transparent;
+	border: none; /* Needed for Firefox */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+::-moz-progress-bar {
+	transition: 1s;
+	@include progress-model($brand-primary);
+}
+
+progress[value]::-webkit-progress-bar {
+	transition: 1s;
+	background-color: #000;
+}
+
+progress[value]::-webkit-progress-value {
+	transition: 1s;
+	@include progress-model($brand-primary);
+}
+
+// Gradient
+
+.progress-level[value]::-moz-progress-bar {
+	@include progress-gradient-model($brand-danger, $brand-warning);
+}
+
+.progress-level[value]::-webkit-progress-value {
+	@include progress-gradient-model($brand-danger, $brand-warning);
+}
+
+// Success
+
+.progress-success-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-success, $brand-purple); }
+.progress-success-purple[value]::-webkit-progress-value { 	@include progress-gradient-model($brand-success, $brand-purple); }
+
+.progress-success-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-success, $brand-primary); }
+.progress-success-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-success, $brand-primary); }
+
+.progress-success-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-success, $brand-warning); }
+.progress-success-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-success, $brand-warning); }
+
+.progress-success-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-success, $brand-danger); }
+.progress-success-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-success, $brand-danger); }
+
+.progress-success-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-success, $brand-info); }
+.progress-success-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-success, $brand-info); }
+
+// Primary
+
+.progress-primary-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-primary, $brand-purple); }
+.progress-primary-purple[value]::-webkit-progress-value { @include progress-gradient-model($brand-primary, $brand-purple); }
+
+.progress-primary-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-primary, $brand-danger); }
+.progress-primary-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-primary, $brand-danger); }
+
+.progress-primary-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-primary, $brand-warning); }
+.progress-primary-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-primary, $brand-warning); }
+
+.progress-primary-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-primary, $brand-info); }
+.progress-primary-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-primary, $brand-info); }
+
+.progress-primary-success[value]::-moz-progress-bar { @include progress-gradient-model($brand-primary, $brand-success); }
+.progress-primary-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-primary, $brand-success); }
+
+// Danger
+
+.progress-danger-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-danger, $brand-purple); }
+.progress-danger-purple[value]::-webkit-progress-value { @include progress-gradient-model($brand-danger, $brand-purple); }
+
+.progress-danger-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-danger, $brand-primary); }
+.progress-danger-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-danger, $brand-primary); }
+
+.progress-danger-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-danger, $brand-warning); }
+.progress-danger-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-danger, $brand-warning); }
+
+.progress-danger-warning-rtl[value]::-moz-progress-bar { @include progress-gradient-model-rtl($brand-danger, $brand-warning); }
+.progress-danger-warning-rtl[value]::-webkit-progress-value { @include progress-gradient-model-rtl($brand-danger, $brand-warning); }
+
+.progress-danger-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-danger, $brand-info); }
+.progress-danger-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-danger, $brand-info); }
+
+.progress-danger-success[value]::-moz-progress-bar { @include progress-gradient-model($brand-danger, $brand-success); }
+.progress-danger-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-danger, $brand-success); }
+
+// Warning
+
+.progress-warning-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-warning, $brand-purple); }
+.progress-warning-purple[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-purple); }
+
+.progress-warning-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-warning, $brand-primary); }
+.progress-warning-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-primary); }
+
+.progress-warning-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-warning, $brand-danger); }
+.progress-warning-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-danger); }
+
+.progress-warning-danger-rtl[value]::-moz-progress-bar { @include progress-gradient-model-rtl($brand-warning, $brand-danger); }
+.progress-warning-danger-rtl[value]::-webkit-progress-value { @include progress-gradient-model-rtl($brand-warning, $brand-danger); }
+
+.progress-warning-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-warning, $brand-info); }
+.progress-warning-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-info); }
+
+.progress-warning-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-success); }
+.progress-warning-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-warning, $brand-success); }
+
+// Info
+
+.progress-info-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-info, $brand-purple); }
+.progress-info-purple[value]::-webkit-progress-value { @include progress-gradient-model($brand-info, $brand-purple); }
+
+.progress-info-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-info, $brand-primary); }
+.progress-info-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-info, $brand-primary); }
+
+.progress-info-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-info, $brand-warning); }
+.progress-info-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-info, $brand-warning); }
+
+.progress-info-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-info, $brand-danger); }
+.progress-info-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-info, $brand-danger); }
+
+.progress-info-success[value]::-moz-progress-bar { @include progress-gradient-model($brand-info, $brand-success); }
+.progress-info-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-info, $brand-success); }
+
+// Purple
+
+.progress-purple-success[value]::-moz-progress-bar { @include progress-gradient-model($brand-purple, $brand-success); }
+.progress-purple-success[value]::-webkit-progress-value { @include progress-gradient-model($brand-purple, $brand-success); }
+
+.progress-purple-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-purple, $brand-primary); }
+.progress-purple-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-purple, $brand-primary); }
+
+.progress-purple-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-purple, $brand-warning); }
+.progress-purple-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-purple, $brand-warning); }
+
+.progress-purple-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-purple, $brand-danger); }
+.progress-purple-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-purple, $brand-danger); }
+
+.progress-purple-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-purple, $brand-info); }
+.progress-purple-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-purple, $brand-info); }
+
+.progress-purple-info-rtl[value]::-moz-progress-bar { @include progress-gradient-model-rtl($brand-purple, $brand-info); }
+.progress-purple-info-rtl[value]::-webkit-progress-value { @include progress-gradient-model-rtl($brand-purple, $brand-info); }
+
+// Muted
+
+$brand-muted: rgba(255,255,255,.6) !important;
+
+.progress-muted-purple[value]::-moz-progress-bar { @include progress-gradient-model($brand-muted, $brand-purple); }
+.progress-muted-purple[value]::-webkit-progress-value { @include progress-gradient-model($brand-muted, $brand-purple); }
+
+.progress-muted-primary[value]::-moz-progress-bar { @include progress-gradient-model($brand-muted, $brand-primary); }
+.progress-muted-primary[value]::-webkit-progress-value { @include progress-gradient-model($brand-muted, $brand-primary); }
+
+.progress-muted-warning[value]::-moz-progress-bar { @include progress-gradient-model($brand-muted, $brand-warning); }
+.progress-muted-warning[value]::-webkit-progress-value { @include progress-gradient-model($brand-muted, $brand-warning); }
+
+.progress-muted-danger[value]::-moz-progress-bar { @include progress-gradient-model($brand-muted, $brand-danger); }
+.progress-muted-danger[value]::-webkit-progress-value { @include progress-gradient-model($brand-muted, $brand-danger); }
+
+.progress-muted-info[value]::-moz-progress-bar { @include progress-gradient-model($brand-muted, $brand-info); }
+.progress-muted-info[value]::-webkit-progress-value { @include progress-gradient-model($brand-muted, $brand-info); }
+
+// White
+
+.progress-white-purple[value]::-moz-progress-bar { @include progress-gradient-model($white, $brand-purple); }
+.progress-white-purple[value]::-webkit-progress-value { @include progress-gradient-model($white, $brand-purple); }
+
+.progress-white-primary[value]::-moz-progress-bar { @include progress-gradient-model($white, $brand-primary); }
+.progress-white-primary[value]::-webkit-progress-value { @include progress-gradient-model($white, $brand-primary); }
+
+.progress-white-warning[value]::-moz-progress-bar { @include progress-gradient-model($white, $brand-warning); }
+.progress-white-warning[value]::-webkit-progress-value { @include progress-gradient-model($white, $brand-warning); }
+
+.progress-white-danger[value]::-moz-progress-bar { @include progress-gradient-model($white, $brand-danger); }
+.progress-white-danger[value]::-webkit-progress-value { @include progress-gradient-model($white, $brand-danger); }
+
+.progress-white-info[value]::-moz-progress-bar { @include progress-gradient-model($white, $brand-info); }
+.progress-white-info[value]::-webkit-progress-value { @include progress-gradient-model($white, $brand-info); }
+
+// Flat
+
+.progress-success[value]::-moz-progress-bar { @include progress-model($brand-success); }
+.progress-success[value]::-webkit-progress-value { @include progress-model($brand-success); }
+
+.progress-warning[value]::-moz-progress-bar { @include progress-model($brand-warning); }
+.progress-warning[value]::-webkit-progress-value { @include progress-model($brand-warning); }
+
+.progress-danger[value]::-moz-progress-bar { @include progress-model($brand-danger); }
+.progress-danger[value]::-webkit-progress-value { @include progress-model($brand-danger); }
+
+.progress-purple[value]::-moz-progress-bar { @include progress-model($brand-purple); }
+.progress-purple[value]::-webkit-progress-value { @include progress-model($brand-purple); }
+
+.progress-info[value]::-moz-progress-bar { @include progress-model($brand-info); }
+.progress-info[value]::-webkit-progress-value { @include progress-model($brand-info); }
+
+.progress-white[value]::-moz-progress-bar { @include progress-model($white); }
+.progress-white[value]::-webkit-progress-value { @include progress-model($white); }

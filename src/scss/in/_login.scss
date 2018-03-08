@@ -1,0 +1,15 @@
+.login-row {
+	background-size: cover;
+}
+
+.login-card {
+	width: 100%;
+	border-radius: 0 !important;
+	margin: 0;
+
+	background-color: rgba(#fff, 0.9);
+
+	.mat-card-actions {
+		padding: 0;
+	}
+}

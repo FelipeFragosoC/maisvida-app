@@ -1,0 +1,68 @@
+<header class="app-header navbar">
+	<ul class="nav navbar-nav ml-auto">
+		<li class="nav-item text-right pr-4">
+			<h6 class="mb-0">{{usuarioService.usuario.name}}</h6>
+			<h6 class="mb-0 text-muted small">{{usuarioService.usuario.roleString}}</h6>
+		</li>
+
+		<li class="nav-item pr-3">
+			<img class="center-cropped header" src="/assets/img/dummy.png"/>
+		</li>
+	</ul>
+</header>
+
+<div class="app-body">
+
+	<div class="sidebar">
+		<ul class="nav">
+
+			<li class="nav-item text-center" style="padding-top: 0.7em;">
+				<img src="/assets/img/just_logo.png" width="40"/>
+			</li>
+
+			<li class="nav-item my-3"></li>
+
+			<li class="nav-item">
+				<a class="nav-link" routerLinkActive="active" [routerLink]="['/painel']">
+					<i class="material-icons">home</i>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" routerLinkActive="active" [routerLink]="['/medico']">
+					<i class="material-icons">apps</i>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Main content -->
+	<main class="main">
+
+		<div class="container-fluid">
+			<router-outlet></router-outlet>
+		</div>
+		<!-- /.conainer-fluid -->
+	</main>
+
+	<aside class="aside-menu">
+		<tabset>
+			<tab>
+			</tab>
+		</tabset>
+	</aside>
+</div>
+
+<!-- <footer class="app-footer">
+	<div class="row">
+		<div class="col-6">
+
+		</div>
+		<div class="col-6 text-right">
+			<button mat-button style="font-size:14px !important;">
+				v0.0.1
+			</button>
+		</div>
+	</div>
+</footer>
+-->

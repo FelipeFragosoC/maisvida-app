@@ -1,0 +1,165 @@
+.app-header {
+	left: 120px;
+	right: 20px;
+	top: 20px;
+	width: unset !important;
+	border-radius: 5px;
+}
+
+.header-fixed .app-body {
+	margin-top: 0;
+}
+
+.sidebar {
+	text-align: center;
+	padding-top: 20px;
+
+	.nav {
+
+		.nav-item {
+			.nav-link {
+				padding: 10px 20px;
+
+				&.active {
+					background: none;
+					i {
+						color: $brand-primary;
+					}
+				}
+
+				i {
+					color: #999;
+					font-size: 30px;
+					vertical-align: middle;
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+}
+
+.sidebar-fixed {
+	.app-footer {
+		margin-left: 0;
+	}
+}
+
+.main {
+	padding-top: 110px;
+}
+
+.app-header.navbar {
+	-webkit-box-shadow: 0px 5px 10px 0px rgba(#000,0.1);
+	-moz-box-shadow: 0px 5px 10px 0px rgba(#000,0.1);
+	box-shadow: 0px 5px 10px 0px rgba(#000,0.1);
+
+	.navbar-brand {
+		background-position: left center;
+		margin-left: 60px;
+	}
+
+	.nav {
+		.user-info {
+			color: $navbar-color !important;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+
+			img {
+				margin-left: 20px;
+				border-radius: 50px;
+				-webkit-box-shadow: 0px 5px 10px 0px rgba(#000,0.5);
+				-moz-box-shadow: 0px 5px 10px 0px rgba(#000,0.5);
+				box-shadow: 0px 5px 10px 0px rgba(#000,0.5);
+			}
+
+			.mat-button {
+				font-size: 14px !important;
+			}
+		}
+	}
+}
+
+.dota-match {
+	min-height: 100px;
+
+	.match-detail {
+	}
+
+	h4, h6 {
+		margin-bottom: 0;
+	}
+
+	&.victory {
+		border-bottom: 1px solid #32AA7E;
+	}
+
+	&.defeat {
+		border-bottom: 1px solid #EA4C4C;
+	}
+}
+
+.background-hero {
+	min-height: 100px;
+	width: 100%;
+	background: center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	opacity: 0.1;
+}
+
+.va-m {
+	vertical-align: middle;
+}
+
+.va-t {
+	vertical-align: top;
+}
+
+.va-b {
+	vertical-align: bottom;
+}
+
+.w-40 {
+	width: 40%;
+}
+
+.w-60 {
+	width: 60%;
+}
+
+.border-right-radius-none {
+	border-bottom-right-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+.border-left-radius-none {
+	border-bottom-left-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.editor-top-margin {
+	border-top: 1px solid #ffcccc;
+	position: relative;
+	top: -1088.54px;
+}
+
+.editor-bottom-margin {
+	border-top: 1px solid #ffcccc;
+	position: relative;
+	top: -150.59px;
+}
+
+.in-badge {
+	border-radius: 50px;
+	min-width: 20px;
+	min-height: 20px;
+	line-height: 15px;
+	position: absolute;
+	top: 0;
+	right: 45px;
+}
