@@ -2,7 +2,7 @@ import { Injectable} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
 import { AppService } from '../../app.service';
-import { MaisVidaResponse } from '@app/model';
+import {MaisVidaResponse, Medico} from '@app/model';
 
 import { catchError, map } from "rxjs/operators";
 import { Observable } from 'rxjs/Observable';
@@ -13,4 +13,6 @@ export class MedicoService extends AppService {
 	constructor (private http:HttpClient) {
 		super();
 	}
+
+	public medico:Medico;
 }

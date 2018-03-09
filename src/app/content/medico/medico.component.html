@@ -1,1 +1,55 @@
-medico
+<div class="row mb-3">
+    <div class="col-12">
+        <mat-card>
+            <div class="row">
+                <div class="col-6"><h2>Médicos</h2></div>
+                <div class="col-6 text-right"><button class="btn-success" routerLink="novo" mat-raised-button>
+                    <i class="material-icons">person_add</i>
+                    Criar Médico</button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <p *ngIf="!medicos.length" class="text-center py-5">
+                Adicione o primeiro médico<br>
+                <button class="btn-success" routerLink="novo" mat-raised-button>
+                    <i class="material-icons">person_add</i>
+                    Adicionar Médico
+                </button>
+            </p>
+            <table class="table" *ngIf="medicos.length">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Primeiro Nome</th>
+                    <th>Último Nome</th>
+                    <th>Email</th>
+                    <th>Ativo</th>
+                    <th>Ocupado</th>
+                    <th class="text-center">-</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let medico of medicos">
+                    <td>{{ medico.id }}</td>
+                    <td>{{ medico.primeiroNome }}</td>
+                    <td>{{ medico.ultimoNome }}</td>
+                    <td>{{ medico.email }}</td>
+                    <td> <mat-slide-toggle [checked]="medico.ativo"></mat-slide-toggle></td>
+                    <td> <mat-slide-toggle [checked]="medico.ocupado"></mat-slide-toggle></td>
+                    <td width="180px">
+                        <button class="text-info" mat-icon-button (click)="visualizarMedico(medico)" matTooltip="Detalhar"><i class="material-icons">details</i></button>
+                        <button class="text-warning" mat-icon-button (click)="editarMedico(medico)" matTooltip="Editar"><i class="material-icons">edit</i></button>
+                        <button class="text-danger" mat-icon-button (click)="confirmarDelecao(medico)" matTooltip="Excluir"><i class="material-icons">delete_forever</i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </mat-card>
+    </div>
+</div>
