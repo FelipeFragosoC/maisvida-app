@@ -20,4 +20,12 @@ export class EspecialidadeService extends AppService {
             catchError(this.handleError)
         )
     }
+
+    getEspecialidadesJSON(): Observable<any> {
+        return this.http.get<any>(this.constApi + "especialidades.json", this.getHeaders()).pipe(
+            map(this.extractData),
+            catchError(this.handleError)
+        )
+    }
+
 }

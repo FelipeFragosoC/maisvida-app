@@ -27,4 +27,18 @@ export class EnderecoService extends AppService {
             catchError(this.handleError)
         )
     }
+
+    getUfsJSON(): Observable<any> {
+        return this.http.get<any>(this.constApi + "ufs.json", this.getHeaders()).pipe(
+            map(this.extractData),
+            catchError(this.handleError)
+        )
+    }
+
+    getCidadesJSON(): Observable<any> {
+        return this.http.get<any>(this.constApi + "cidades.json", this.getHeaders()).pipe(
+            map(this.extractData),
+            catchError(this.handleError)
+        )
+    }
 }
