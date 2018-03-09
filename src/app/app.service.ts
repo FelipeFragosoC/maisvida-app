@@ -20,41 +20,17 @@ export class AppService {
 		return { "headers" : headers };
 	}
 
-	protected extractData(res:HttpResponse<any>):MaisVidaResponse {
-		let maisVidaResponse:MaisVidaResponse = new MaisVidaResponse();
-		maisVidaResponse.fromObject(res['data']);
-
-		if(maisVidaResponse.className) {
-			let newResult = [];
-
-			for(let i:number = 0; i < maisVidaResponse.result.length; i++) {
-				let instance = new AppModel[maisVidaResponse.className]();
-				instance.fromObject(maisVidaResponse.result[i]);
-				newResult.push(instance);
-			}
-
-			maisVidaResponse.result = newResult;
-		}
-
-		return maisVidaResponse;
+	protected extractData(res:HttpResponse<any>):any {
+		return res;
 	}
 
-	protected handleError(error: HttpErrorResponse) {
-		let maisVidaResponse:MaisVidaResponse = new MaisVidaResponse();
-		maisVidaResponse.fromObject(error.error);
-
-		if (error.status === 401) {
-			if (error['error_description'] === 'The access token provided has expired.' || error['error_description'] === 'The access token provided is invalid.') {
-				localStorage.clear();
-			}
-		}
-
-		return new ErrorObservable(maisVidaResponse);
+	protected handleError(error: HttpErrorResponse):any {
+		return new ErrorObservable(error);
 	}
 
 	get baseApi() {
 		if (isDevMode()) {
-			return 'http://localhost:8000/';
+			return 'http://192.168.0.105:9090/';
 		}
 
 		return 'https://maisvida-api.com.br/'; // production url
