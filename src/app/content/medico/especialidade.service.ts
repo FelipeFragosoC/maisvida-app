@@ -22,7 +22,7 @@ export class EspecialidadeService extends AppService {
     }
 
     getEspecialidadesJSON(): Observable<any> {
-        return this.http.get<any>(this.constApi + "especialidades.json", this.getHeaders()).pipe(
+        return this.http.get<any>(this.jsonApi + "especialidades.json", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )

@@ -29,14 +29,14 @@ export class EnderecoService extends AppService {
     }
 
     getUfsJSON(): Observable<any> {
-        return this.http.get<any>(this.constApi + "ufs.json", this.getHeaders()).pipe(
+        return this.http.get<any>(this.jsonApi + "ufs.json", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )
     }
 
     getCidadesJSON(): Observable<any> {
-        return this.http.get<any>(this.constApi + "cidades.json", this.getHeaders()).pipe(
+        return this.http.get<any>(this.jsonApi + "cidades.json", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )

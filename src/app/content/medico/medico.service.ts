@@ -31,7 +31,7 @@ export class MedicoService extends AppService {
     }
 
     getMedicosJSON(): Observable<any> {
-        return this.http.get<any>(this.constApi + "medicos.json", this.getHeaders()).pipe(
+        return this.http.get<any>(this.jsonApi + "medicos.json", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )
