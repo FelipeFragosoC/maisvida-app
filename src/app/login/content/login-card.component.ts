@@ -17,12 +17,18 @@ export class LoginCardComponent extends InComponent implements OnInit {
     public email: string;
     public senha: string;
 
+    public lembrarSenha:boolean = false;
+
     @Output() loginCompleted = new EventEmitter();
 
     public visitorEmail: string;
 
     constructor(private loginService: LoginService, private usuarioService: UsuarioService, private router: Router, private notification: NotificationsService, public dialog: MatDialog) {
         super();
+
+        this.email = localStorage.getItem('email');
+        this.senha = localStorage.getItem('senha');
+        this.lembrarSenha = localStorage.getItem('lembrarSenha') == 'true';
     }
 
     ngOnInit(): void {
@@ -39,7 +45,7 @@ export class LoginCardComponent extends InComponent implements OnInit {
     }
 
     public realizarLogin() {
-        this.loginService.fazerLogin(this.email, this.senha).subscribe(
+        this.loginService.fazerLogin(this.email, this.senha, this.lembrarSenha).subscribe(
             result => {
                 this.notification.success("MaisVida", "Login realizado com sucesso.");
             },

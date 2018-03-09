@@ -37,6 +37,8 @@ export class LoginService extends AppService {
             localStorage.setItem("senha", senha);
         }
 
+        localStorage.setItem("lembrarSenha", lembrarSenha.toString());
+
         let headers = new HttpHeaders({
             'Content-Type':  'application/json; charset=UTF-8',
             'Authorization': 'Basic ' + authBase64
