@@ -36,4 +36,6 @@ export class AppService {
 		return 'https://maisvida-api.com.br/'; // production url
 	}
 
+	protected jsonApi:string = '/assets/json/';
+
 }
