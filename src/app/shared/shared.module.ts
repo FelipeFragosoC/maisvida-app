@@ -13,6 +13,8 @@ import { LoadingComponent } from "./loading.component";
 import { ChartsModule } from "ng2-charts";
 import { CKEditorModule } from "ng2-ckeditor";
 import { MedicoService } from "../content/medico/medico.service";
+import {EnderecoService} from "./endereco.service";
+import {EspecialidadeService} from "../content/medico/especialidade.service";
 
 @NgModule({
 	imports: [
@@ -51,7 +53,9 @@ import { MedicoService } from "../content/medico/medico.service";
 	],
 	providers: [
 		{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-		MedicoService
+		MedicoService,
+		EnderecoService,
+		EspecialidadeService
 	],
 	exports: [
 		CommonModule,
