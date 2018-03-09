@@ -32,8 +32,9 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
-                        <mat-select placeholder="Especialidade">
-                            <mat-option *ngFor="let especialidade of especialidades">
+                        <mat-select placeholder="Especialidade" [(ngModel)]="medico.especialidade" [compareWith]="compararSelect">
+                            <mat-option>Nenhuma Especialidade selecionada</mat-option>
+                            <mat-option *ngFor="let especialidade of especialidades" [value]="especialidade">
                                 {{ especialidade.nome }}
                             </mat-option>
                         </mat-select>
@@ -56,8 +57,9 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
-                        <mat-select placeholder="Estado">
-                            <mat-option *ngFor="let uf of ufs">
+                        <mat-select placeholder="Estado" [(ngModel)]="ufSelecionada" [compareWith]="compararSelect" (selectionChange)="getCidade()">
+                            <mat-option>Nenhuma UF selecionada</mat-option>
+                            <mat-option *ngFor="let uf of ufs" [value]="uf">
                                 {{ uf.sigla }}
                             </mat-option>
                         </mat-select>
@@ -65,8 +67,9 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
-                        <mat-select placeholder="Cidade">
-                            <mat-option *ngFor="let cidade of cidades">
+                        <mat-select placeholder="Cidade" [(ngModel)]="medico.cidade" [compareWith]="compararSelect" [disabled]="!cidades.length">
+                            <mat-option>Nenhuma Cidade selecionada</mat-option>
+                            <mat-option *ngFor="let cidade of cidades" [value]="cidade">
                                 {{ cidade.nome }}
                             </mat-option>
                         </mat-select>

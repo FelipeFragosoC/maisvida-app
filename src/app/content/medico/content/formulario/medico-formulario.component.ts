@@ -19,6 +19,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
     public ufs:Uf[] = [];
     public cidades:Cidade[] = [];
 
+    public ufSelecionada:Uf;
+
     constructor(public medicoService: MedicoService, public notification: NotificationsService, private router: Router,
                 public activatedRoute: ActivatedRoute, public  especialidadeService: EspecialidadeService, public enderecoService: EnderecoService) {
         super();
@@ -29,9 +31,9 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
             }
         );
 
-        this.getEspecialidade();
-        this.getUf();
-        this.getCidade();
+        this.getEspecialidades();
+        this.getUfs();
+        //this.getCidade();
 
         if (this.medicoService.medico) {
             this.medico = this.medicoService.medico;
@@ -45,8 +47,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
 
     }
 
-    getEspecialidade() {
-        this.especialidadeService.getEspecialidade().subscribe(
+    getEspecialidades() {
+        this.especialidadeService.getEspecialidadesJSON().subscribe(
             result => {
                 this.especialidades = result;
             },
@@ -57,8 +59,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
         )
     }
 
-    getUf() {
-        this.enderecoService.getUfs().subscribe(
+    getUfs() {
+        this.enderecoService.getUfsJSON().subscribe(
             result => {
                 this.ufs = result;
             },
@@ -69,8 +71,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
         )
     }
 
-    getCidade() {
-        this.enderecoService.getCidades().subscribe(
+    getCidades() {
+        this.enderecoService.getCidadesJSON().subscribe(
             result => {
                 this.cidades = result;
             },
@@ -127,7 +129,15 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
         )
     }
 
+    public compararSelect(v1:any, v2:any) {
+        return v1 && v2 ? v1.id === v2.id : v1 === v2;
+    }
+
     ngOnInit() {
+        if(this.medico.cidade) {
+            this.ufSelecionada = this.medico.cidade.uf;
+            this.getCidades();
+        }
     }
 
     ngOnDestroy() {
