@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 import {AppService} from '../app.service';
 
@@ -10,6 +10,9 @@ import {catchError, map} from "rxjs/operators";
 
 @Injectable()
 export class LoginService extends AppService {
+
+    public client_id:string = 'spring-security-oauth2-read-write-client';
+    public client_secret:string = 'spring-security-oauth2-read-write-client-password1234';
 
     constructor(private http: HttpClient) {
         super();
@@ -27,12 +30,20 @@ export class LoginService extends AppService {
         formData.append('username', usuario);
         formData.append('password', senha);
 
+        let authBase64 = btoa(this.client_id + ':' + this.client_secret);
+
         if (lembrarSenha) {
             localStorage.setItem("usuario", usuario);
             localStorage.setItem("senha", senha);
         }
 
-        return this.http.post<any>(this.baseApi + "oauth/token", formData, this.getHeaders()).pipe(
+        let headers = new HttpHeaders({
+            'Content-Type':  'application/json; charset=UTF-8',
+            'Authorization': 'Basic ' + authBase64
+        });
+
+
+        return this.http.post<any>(this.baseApi + "oauth/token", formData, {"headers" : headers}).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )
