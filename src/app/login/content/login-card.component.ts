@@ -14,8 +14,8 @@ import { UsuarioService } from "../../content/usuario/usuario.service";
 })
 export class LoginCardComponent extends InComponent implements OnInit {
 
-	public usuarioname:string;
-	public password:string;
+	public email:string;
+	public senha:string;
 
 	@Output() loginCompleted = new EventEmitter();
 
@@ -29,10 +29,10 @@ export class LoginCardComponent extends InComponent implements OnInit {
 	}
 
 	private validateLogin():boolean {
-		if(!this.usuarioname || !this.password)
+		if(!this.email || !this.senha)
 			return false;
 
-		if(this.usuarioname.length < 5 || this.password.length < 5)
+		if(this.email.length < 5 || this.senha.length < 5)
 			return false;
 
 		return true;
