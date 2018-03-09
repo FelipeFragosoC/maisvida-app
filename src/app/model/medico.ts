@@ -9,10 +9,6 @@ export class Medico extends InModel {
     email: string;
     ativo: number;
     status: number;
-
-    id_especialidade: number;
     especialidade: Especialidade;
-
-    id_cidade: number;
     cidade: Cidade;
 }
