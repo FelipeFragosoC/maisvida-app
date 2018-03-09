@@ -44,7 +44,7 @@ export class MedicoComponent extends InComponent implements OnInit {
     }
 
     getMedicos(){
-        this.medicoService.getMedicos().subscribe(
+        this.medicoService.getMedicosJSON().subscribe(
             result => {
 
                 this.medicos = [];
