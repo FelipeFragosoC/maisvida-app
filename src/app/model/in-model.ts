@@ -1,6 +1,4 @@
-import { InBase } from "./in-base";
-
-export class InModel extends InBase {
+export class InModel {
 
 	fromObject(obj: Object) {
 		for (var propName in obj) {

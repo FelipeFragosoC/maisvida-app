@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { InBase } from "./in-base";
 
 @Injectable()
-export class InComponent extends InBase {
+export class InComponent {
 
-	public loading:boolean = false;
+    public loading: boolean = false;
 
-	constructor() { super() }
 }
+
