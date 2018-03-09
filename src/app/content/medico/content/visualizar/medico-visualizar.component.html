@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12"></div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <mat-card>
+            <h2>
+                <button class="btn-info" mat-icon-button routerLink="/medico">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </button>
+                {{ title }} Médicos
+            </h2>
+        </mat-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 py-3"><span class="text-primary">Primeiro Nome: </span>
+                    {{ medico.primeiroNome }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Último Nome: </span>
+                    {{ medico.ultimoNome }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Especialidade: </span>
+                    {{ medico.especialidade }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Email: </span>
+                    {{ medico.email }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Ativo: </span>
+                    {{ medico.ativo }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Status: </span>
+                    {{ medico.status }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Estado: </span>
+                    {{ medico.uf }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 py-3">
+                    <span class="text-primary">Cidade: </span>
+                    {{ medico.cidade }}
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-12 mt-3">
+        <button class="btn-info" mat-raised-button routerLink="/medico">
+            <i class="material-icons">keyboard_arrow_left</i>
+            Voltar
+        </button>
+    </div>
+</div>
