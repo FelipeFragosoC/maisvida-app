@@ -28,6 +28,7 @@ import { LoginService } from "./login/login.service";
 import { DialogLogoutComponent } from "./layouts/content/dialog-logout.component";
 import { SimpleNotificationsModule } from "angular2-notifications";
 import { DialogResetPasswordComponent } from "./login/content/dialog-reset-password.component";
+import {DialogConfirmarComponent} from "./shared/dialog-confirmar.component";
 
 @NgModule({
 	imports: [
@@ -54,6 +55,7 @@ import { DialogResetPasswordComponent } from "./login/content/dialog-reset-passw
 		/* Material Dialogs */
 		DialogLogoutComponent,
 		DialogResetPasswordComponent,
+        DialogConfirmarComponent,
 		/* END -- Material Dialogs */
 	],
 	providers: [
@@ -65,6 +67,7 @@ import { DialogResetPasswordComponent } from "./login/content/dialog-reset-passw
 	entryComponents: [
 		DialogLogoutComponent,
 		DialogResetPasswordComponent,
+        DialogConfirmarComponent,
 	],
 	bootstrap: [ AppComponent ]
 })
