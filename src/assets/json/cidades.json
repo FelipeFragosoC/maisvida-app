@@ -1,0 +1,4 @@
+[
+  { "id": 1, "nome": "Brasília", "uf":{"id": 1} },
+  { "id": 2, "nome": "Taguatinga", "uf":{"id": 1} }
+]

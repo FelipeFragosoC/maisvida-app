@@ -1,0 +1,5 @@
+[
+  {"id": 1, "primeiroNome":"John", "ultimoNome":"Boo", "email":"johny@gmail.com", "ativo": 1, "status": 0, "cidade": {"id" : 1, "uf": {"id" : 1}}},
+  {"id": 2, "primeiroNome":"Mary", "ultimoNome":"Brown", "email":"missmary@gmail.com", "ativo": 1, "status": 1, "cidade": {"id" : 2, "uf": {"id" : 1}}},
+  {"id": 3, "primeiroNome":"James", "ultimoNome":"Mooray", "email":"jijames@gmail.com", "ativo": 0, "status": 0, "cidade": {"id" : 1, "uf": {"id" : 1}}}
+]
