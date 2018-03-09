@@ -18,15 +18,50 @@ export class MedicoComponent extends InComponent implements OnInit {
 
 	constructor(public medicoService:MedicoService, public notification:NotificationsService, private router:Router, public dialog:MatDialog) {
 		super();
+
+		this.getMedicos();
 	}
 
-	confirmarDelecao(medico:any){
+	confirmarDelecao(medico:Medico){
 	    let dialogRef = this.dialog.open(DialogConfirmarComponent);
 	    dialogRef.afterClosed().subscribe(result=>{
 	        if(result){
-	            console.log("deletar medico");
+	            this.deletarMedico(medico.id);
             }
         })
+    }
+
+    deletarMedico(id){
+	    this.medicoService.deleteMedico(id).subscribe(
+            result => {
+                this.notification.success('MaisVida', "Médico removido com sucesso.");
+                this.getMedicos();
+            },
+            error => {
+                this.notification.error("MaisVida", "Não foi possível salvar o Médico, tente novamente mais tarde.");
+            }
+        )
+    }
+
+    getMedicos(){
+        this.medicoService.getMedicos().subscribe(
+            result => {
+
+                this.medicos = [];
+
+                let medico:Medico;
+
+                for(let i:number = 0; i < result.length; i++) {
+                    medico = new Medico();
+                    medico.fromObject(result[i]);
+                    this.medicos.push(medico);
+                }
+            },
+            error => {
+                this.notification.error("MaisVida", "Não foi possivel buscar os médicos");
+                console.error(error);
+            }
+        )
     }
 
 	visualizarMedico(medico:any){

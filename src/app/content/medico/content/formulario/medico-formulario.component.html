@@ -19,55 +19,55 @@
     <div class="col-12">
         <mat-card>
             <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field class="example-full-width">
                         <input [(ngModel)]="medico.primeiroNome" matInput placeholder="Primeiro Nome"
                                name="primeiroNome">
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field class="example-full-width">
                         <input [(ngModel)]="medico.ultimoNome" matInput placeholder="Último Nome" name="ultimoNome">
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
                         <mat-select placeholder="Especialidade">
-                            <mat-option *ngFor="let especialidade of especialidades" [value]="medico.especialidade">
-                                {{ medico.especialidade }}
+                            <mat-option *ngFor="let especialidade of especialidades">
+                                {{ especialidade.nome }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field class="example-full-width">
                         <input [(ngModel)]="medico.email" matInput placeholder="Email" name="email">
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-slide-toggle [checked]="medico.ativo">Ativo</mat-slide-toggle>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-slide-toggle [checked]="medico.ocupado">Ocupado</mat-slide-toggle>
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
                         <mat-select placeholder="Estado">
-                            <mat-option *ngFor="let estado of estados" [value]="medico.uf">
-                                {{ medico.estado }}
+                            <mat-option *ngFor="let uf of ufs">
+                                {{ uf.sigla }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
                         <mat-select placeholder="Cidade">
-                            <mat-option *ngFor="let cidade of cidades" [value]="medico.cidade">
-                                {{ medico.cidade }}
+                            <mat-option *ngFor="let cidade of cidades">
+                                {{ cidade.nome }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -80,7 +80,7 @@
             <i class="material-icons">keyboard_arrow_left</i>
             Voltar
         </button>
-        <button class="btn-success" mat-raised-button>
+        <button class="btn-success" mat-raised-button (click)="salvarMedico()">
             <i class="material-icons">save</i>
             Salvar
         </button>

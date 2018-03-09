@@ -27,10 +27,10 @@
                 <tr>
                     <th>#</th>
                     <th>Primeiro Nome</th>
-                    <th>Último Nome</th>
-                    <th>Email</th>
-                    <th>Ativo</th>
-                    <th>Ocupado</th>
+                    <th class="d-sm-down-none">Último Nome</th>
+                    <th class="d-md-down-none">Email</th>
+                    <th class="d-none d-md-table-cell">Ativo</th>
+                    <th class="d-none d-md-table-cell">Ocupado</th>
                     <th class="text-center">-</th>
                 </tr>
                 </thead>
@@ -38,10 +38,10 @@
                 <tr *ngFor="let medico of medicos">
                     <td>{{ medico.id }}</td>
                     <td>{{ medico.primeiroNome }}</td>
-                    <td>{{ medico.ultimoNome }}</td>
-                    <td>{{ medico.email }}</td>
-                    <td> <mat-slide-toggle [checked]="medico.ativo"></mat-slide-toggle></td>
-                    <td> <mat-slide-toggle [checked]="medico.ocupado"></mat-slide-toggle></td>
+                    <td class="d-sm-down-none">{{ medico.ultimoNome }}</td>
+                    <td class="d-md-down-none">{{ medico.email }}</td>
+                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.ativo"></mat-slide-toggle></td>
+                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.ocupado"></mat-slide-toggle></td>
                     <td width="180px">
                         <button class="text-info" mat-icon-button (click)="visualizarMedico(medico)" matTooltip="Detalhar"><i class="material-icons">details</i></button>
                         <button class="text-warning" mat-icon-button (click)="editarMedico(medico)" matTooltip="Editar"><i class="material-icons">edit</i></button>
