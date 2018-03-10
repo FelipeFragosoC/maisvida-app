@@ -18,6 +18,19 @@ Instalar Dependências:
 npm install
 ```
 
+Em `app.service.ts` verificar se o endereço da API na interface está correto.
+
+```
+get baseApi() {
+    if (isDevMode()) {
+        return 'http:localhost:8080/'; // <------ Alterar esse valor apontando para a API.
+    }
+    
+    return 'https://maisvida-api.com.br/'; // production url
+}
+
+```
+
 Inicie o WebServer:
 
 ```
