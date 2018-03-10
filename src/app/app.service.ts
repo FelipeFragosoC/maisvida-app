@@ -30,7 +30,7 @@ export class AppService {
 
 	get baseApi() {
 		if (isDevMode()) {
-			return 'http://192.168.0.105:9090/';
+			return 'http:localhost:8080/'; // Alterar esse valor apontando para a API.
 		}
 
 		return 'https://maisvida-api.com.br/'; // production url
