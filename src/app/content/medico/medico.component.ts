@@ -44,7 +44,8 @@ export class MedicoComponent extends InComponent implements OnInit {
     }
 
     getMedicos(){
-        this.medicoService.getMedicosJSON().subscribe(
+        //this.medicoService.getMedicosJSON().subscribe(
+        this.medicoService.getMedicos().subscribe(
             result => {
 
                 this.medicos = [];
@@ -56,6 +57,8 @@ export class MedicoComponent extends InComponent implements OnInit {
                     medico.fromObject(result[i]);
                     this.medicos.push(medico);
                 }
+
+                console.log(this.medicos);
             },
             error => {
                 this.notification.error("MaisVida", "Não foi possivel buscar os médicos");
@@ -72,6 +75,40 @@ export class MedicoComponent extends InComponent implements OnInit {
     editarMedico(medico:any) {
 	    this.medicoService.medico = medico;
 	    this.router.navigate(['/medico/editar/' + medico.id])
+    }
+
+    limparService() {
+	    this.medicoService.medico = undefined;
+    }
+
+    mudarAtivo(medico:Medico) {
+	    console.log('mudar ativo');
+
+	    medico.ativo = !medico.ativo;
+
+	    this.medicoService.putMedico(medico).subscribe(
+	        result => {
+	            this.notification.success("MaisVida", "Situação alterada.")
+            },
+            error => {
+                this.notification.error("MaisVida", "Ocorreu um erro ao tentar alterar a situação.")
+            }
+        )
+    }
+
+    mudarStatus(medico:Medico) {
+        console.log('mudar status');
+
+        medico.status = !medico.status;
+
+        this.medicoService.putMedico(medico).subscribe(
+            result => {
+                this.notification.success("MaisVida", "Situação alterada.")
+            },
+            error => {
+                this.notification.error("MaisVida", "Ocorreu um erro ao tentar alterar a situação.")
+            }
+        )
     }
 
 	ngOnInit() {

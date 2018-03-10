@@ -3,7 +3,7 @@
         <mat-card>
             <div class="row">
                 <div class="col-6"><h2>Médicos</h2></div>
-                <div class="col-6 text-right"><button class="btn-success" routerLink="novo" mat-raised-button>
+                <div class="col-6 text-right"><button class="btn-success" routerLink="novo" (click)="limparService()" mat-raised-button>
                     <i class="material-icons">person_add</i>
                     Criar Médico</button>
                 </div>
@@ -40,8 +40,8 @@
                     <td>{{ medico.primeiroNome }}</td>
                     <td class="d-sm-down-none">{{ medico.ultimoNome }}</td>
                     <td class="d-md-down-none">{{ medico.email }}</td>
-                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.ativo"></mat-slide-toggle></td>
-                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.ocupado"></mat-slide-toggle></td>
+                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.ativo != 0" (change)="mudarAtivo(medico)"></mat-slide-toggle></td>
+                    <td class="d-none d-md-table-cell"> <mat-slide-toggle [checked]="medico.status != 0" (change)="mudarStatus(medico)"></mat-slide-toggle></td>
                     <td width="180px">
                         <button class="text-info" mat-icon-button (click)="visualizarMedico(medico)" matTooltip="Detalhar"><i class="material-icons">details</i></button>
                         <button class="text-warning" mat-icon-button (click)="editarMedico(medico)" matTooltip="Editar"><i class="material-icons">edit</i></button>

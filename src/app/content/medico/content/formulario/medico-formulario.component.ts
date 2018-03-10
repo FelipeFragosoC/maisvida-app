@@ -48,7 +48,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
     }
 
     getEspecialidades() {
-        this.especialidadeService.getEspecialidadesJSON().subscribe(
+        //this.especialidadeService.getEspecialidadesJSON().subscribe(
+        this.especialidadeService.getEspecialidades().subscribe(
             result => {
                 this.especialidades = result;
             },
@@ -60,7 +61,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
     }
 
     getUfs() {
-        this.enderecoService.getUfsJSON().subscribe(
+        //this.enderecoService.getUfsJSON().subscribe(
+        this.enderecoService.getUfs().subscribe(
             result => {
                 this.ufs = result;
             },
@@ -72,7 +74,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
     }
 
     getCidades() {
-        this.enderecoService.getCidadesJSON().subscribe(
+        //this.enderecoService.getCidadesJSON().subscribe(
+        this.enderecoService.getCidades(this.ufSelecionada.id).subscribe(
             result => {
                 this.cidades = result;
             },
@@ -87,6 +90,8 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
         this.medicoService.getMedico(id).subscribe(
             result => {
                 this.medico.fromObject(result);
+                this.ufSelecionada = this.medico.cidade.uf;
+                this.getCidades();
             },
             error => {
                 this.notification.error("MaisVida", "Não foi possível buscar o Médico, tente novamente mais tarde.");
@@ -95,8 +100,10 @@ export class MedicoFormularioComponent extends InComponent implements OnInit {
         )
     }
 
-    salvarMedico(medico: Medico) {
-        if (medico.id) {
+    salvarMedico() {
+        console.log(this.medico);
+
+        if (this.medico.id) {
             this.putMedico();
             return;
         }
