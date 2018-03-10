@@ -48,16 +48,16 @@
                     </mat-form-field>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 py-3">
-                    <mat-slide-toggle [checked]="medico.ativo">Ativo</mat-slide-toggle>
+                    <mat-slide-toggle [(ngModel)]="medico.ativo">Ativo</mat-slide-toggle>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 py-3">
-                    <mat-slide-toggle [checked]="medico.ocupado">Ocupado</mat-slide-toggle>
+                    <mat-slide-toggle [(ngModel)]="medico.status">Ocupado</mat-slide-toggle>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 py-3">
                     <mat-form-field>
-                        <mat-select placeholder="Estado" [(ngModel)]="ufSelecionada" [compareWith]="compararSelect" (selectionChange)="getCidade()">
+                        <mat-select placeholder="Estado" [(ngModel)]="ufSelecionada" [compareWith]="compararSelect" (selectionChange)="getCidades()">
                             <mat-option>Nenhuma UF selecionada</mat-option>
                             <mat-option *ngFor="let uf of ufs" [value]="uf">
                                 {{ uf.sigla }}
