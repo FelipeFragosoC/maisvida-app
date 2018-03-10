@@ -24,17 +24,31 @@ export class MedicoVisualizarComponent extends InComponent implements OnInit {
         let id = this.activatedRoute.snapshot.params['id'];
 
         if (!this.medicoService.medico) {
-            this.router.navigate(['/medico']);
+            this.getMedico(id);
             return;
         }
 
         this.medico = this.medicoService.medico;
     }
 
+    getMedico(id:number) {
+        this.medicoService.getMedico(id).subscribe(
+            result => {
+                this.medico = new Medico();
+                this.medico.fromObject(result);
+            },
+            error => {
+                this.notification.error("MaisVida", "Não foi possível encontrar o Médico.");
+                this.router.navigate(['/medico']);
+            }
+        )
+    }
+
     ngOnInit() {
     }
 
     ngOnDestroy() {
+        this.medicoService.medico = undefined;
     }
 
 }
