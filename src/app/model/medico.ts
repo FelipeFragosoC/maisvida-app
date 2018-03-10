@@ -7,8 +7,8 @@ export class Medico extends InModel {
     primeiroNome: string;
     ultimoNome: string;
     email: string;
-    ativo: number;
-    status: number;
+    ativo: boolean = false;
+    status: boolean = false;
     especialidade: Especialidade;
     cidade: Cidade;
 }
