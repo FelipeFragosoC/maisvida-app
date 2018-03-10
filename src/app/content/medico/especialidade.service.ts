@@ -14,7 +14,7 @@ export class EspecialidadeService extends AppService {
         super();
     }
 
-    public getEspecialidade(): Observable<any> {
+    public getEspecialidades(): Observable<any> {
         return this.http.get<any>(this.baseApi + "especialidade", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)

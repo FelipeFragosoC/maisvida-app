@@ -21,8 +21,8 @@ export class EnderecoService extends AppService {
         )
     }
 
-    public getCidades(): Observable<any> {
-        return this.http.get<any>(this.baseApi + "cidade", this.getHeaders()).pipe(
+    public getCidades(id_uf:number): Observable<any> {
+        return this.http.get<any>(this.baseApi + "uf/" + id_uf + "/cidade", this.getHeaders()).pipe(
             map(this.extractData),
             catchError(this.handleError)
         )
